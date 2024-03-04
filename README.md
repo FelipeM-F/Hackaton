@@ -10,9 +10,9 @@ Glasc Bet é um site de apostas online focado em partidas de League of Legends (
 
 O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
 
-- [x] Melhoria no Layout responsivo
-- [x] Implementar as funcionalidades dos modais
-- [x] Colocar mais dados para a variedade de jogos 
+- [ ] Melhoria no Layout responsivo
+- [ ] Implementar as funcionalidades dos modais
+- [ ] Colocar mais dados para a variedade de jogos 
 - [ ] Arrumar arquivos de acordo com a metodologia BEM
 - [ ] Interação da página inicial
 
