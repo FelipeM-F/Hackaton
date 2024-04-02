@@ -2,10 +2,10 @@
 const mysql = require('mysql');
 // Alterar para o banco local
 var connection = mysql.createPool({
-    host: "database-1.cj4qy822uobo.us-east-2.rds.amazonaws.com",
+    host: "localhost",
     user: "root",
-    password: "12345678",
-    database: "glbt_aws"
+    password: "1234",
+    database: "hackaton"
 })
 
 connection.getConnection((error) => {

@@ -42,16 +42,15 @@ app.post("/user", function (require, response) {
 app.post('/login', (require, response) => {
     var obj = require.body;
     db.login(obj, function (error, results) {
-        console.log(results);
         if (error) {
             return response.status(500).json({ error: 'Erro interno no servidor.' });
         }
         if (results.length < 1) {
-            return response.status(401).json({ error: 'Credenciais inválidas.' });
+            return response.status(401).json({ error: 'Usuário não encontrado.' });
         }
         const user = results[0];
         if (user.passworld !== obj.passworld) {
-            return response.status(404).json({ error: 'Usuário não encontrado.' });
+            return response.status(404).json({ error: 'Credenciais inválidas.' });
         }
         const id = user.id_user;
         const token = jwt.sign({ id }, process.env.SECRET);
@@ -213,22 +212,17 @@ app.put("/encerrarBet", function (req, res) {
                     }
                     var walletValue = walletResults[0].wallet;
                     var newWalletValue = walletValue + betAmountEarning;
-                    console.log(1);
                     // Atualizar o wallet no banco de dados
                     db.updateWallet({ id_user: id_user, wallet: newWalletValue }, function (error) {
                         if (error) {
-                            console.log("erro");
                             return console.error(error);
                         }
                     })
                 })
             })
         } 
-            console.log(2);
             res.writeHead(200, { "Content-Type": "application/json" });
-            console.log(3);
             res.end('{ "msg": "Bets encerradas com sucesso" }');
-            console.log(4);               
         
     })
 });
